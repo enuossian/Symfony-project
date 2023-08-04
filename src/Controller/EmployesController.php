@@ -14,7 +14,7 @@ use Symfony\Component\DependencyInjection\Loader\Configurator\form;
 
 class EmployesController extends AbstractController
 {
-    #[Route('/annuaire', name: 'accueil')]
+    #[Route('/', name: 'accueil')]
     public function index(EmployesRepository $repo): Response
     {
         $employes = $repo->findAll();
