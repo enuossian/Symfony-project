@@ -1,0 +1,37 @@
+{% extends "base.html.twig" %}
+
+{% block title %}
+    {% if editMode %}
+        Modifier
+    {% else %}
+        Ajouter
+    {% endif %}
+{% endblock %}
+
+{% block body %}
+    <h1 class="text-center my-4 text-primary-emphasis">
+    {% if editMode %}
+        Modifier
+    {% else %}
+        Ajouter
+    {% endif %}
+    un salarié</h1>
+    <div class="container col-6">
+    {{form_start(formEmployes, {
+        attr: {novalidate: 'novalidate'}
+        })}}
+        {{form_row(formEmployes.prenom)}}
+        {{form_row(formEmployes.nom)}}
+        {{form_row(formEmployes.telephone)}}
+        {{form_row(formEmployes.email)}}
+        {{form_row(formEmployes.adresse)}}
+        {{form_row(formEmployes.poste)}}
+        {{form_row(formEmployes.salaire)}}
+        {{form_row(formEmployes.datedenaissance)}}
+        <button class="btn btn-primary">Ajouter</button>
+    {{form_end(formEmployes)}}
+    </div>
+
+
+
+{% endblock %}

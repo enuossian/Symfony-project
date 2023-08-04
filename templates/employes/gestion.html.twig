@@ -1,0 +1,48 @@
+{% extends "base.html.twig" %}
+{% block title %} Gestion des salariés {% endblock %}
+
+{% block body %} 
+
+<div class="container mx-auto mt-3">
+<table class="table table-hover table-striped">
+<thead>
+    <tr>
+        <th>#</th>
+        <th>prenom</th>
+        <th>nom</th>
+        <th>telephone</th>
+        <th>email</th>
+        <th>adresse</th>
+        <th>poste</th>
+        <th>salaire</th>
+        <th>date de naissance</th>
+        <th>option</th>
+
+
+    </tr>
+</thead>
+<tbody>
+    {% for employes in allEmployes %}
+        
+        <tr>
+            <td>{{ employes.id }}</td>
+            <td>{{ employes.prenom }}</td>
+            <td>{{ employes.nom }}</td>
+            <td>{{ employes.telephone }}</td>
+            <td>{{ employes.email }}</td>
+            <td>{{ employes.adresse }}</td>
+            <td>{{ employes.poste }}</td>
+            <td>{{ employes.salaire }}</td>
+            <td>{{ employes.datedenaissance| date('d/m/Y') }}</td>
+            <td>
+                <a href="{{ path('annuaire_show', {id: employes.id}) }}" class="text-success">voir</a>
+                <a href="{{ path('annuaire_modifier', {id: employes.id}) }}"class="text-secondary">Modifier</a>
+                <a href="{{ path('annuaire_supprimer', {id: employes.id}) }}"class="text-danger">Supprimer</a>         
+            </td>
+        </tr>
+    {% endfor %}
+</tbody>
+</table>
+</div>
+{% endblock %}
+

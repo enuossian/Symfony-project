@@ -1,0 +1,20 @@
+{% extends "base.html.twig" %}
+
+{% block title %} Employé {% endblock %}
+
+{% block body %}
+    <div class="container mt-5">
+    <div class="card border-dark bg-light mb-3">
+  <div class="card-header text-center text-light fs-3">{{allEmployes.poste}}</div>
+  <div class="card-body">
+    <h4 class="card-title">{{allEmployes.prenom}} {{allEmployes.nom}}</h4>
+    <p class="card-text">Telephone : {{allEmployes.telephone}} </p>
+    <p class="card-text">Email : {{allEmployes.email}} </p>
+    <p class="card-text">Adresse : {{allEmployes.adresse}} </p>
+    <p class="card-text">Salaire : {{allEmployes.salaire}} euros </p>
+    <p class="card-text">Date de naissance : {{allEmployes.datedenaissance| date('d/m/Y') }}</p>
+
+  </div>
+    
+    </div>
+{% endblock %}
